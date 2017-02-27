@@ -1,0 +1,491 @@
+/*Custom */
+
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+border: 0px !important;
+}
+
+.status {
+float: right;
+}
+.name{
+font-weight: bold;
+}
+
+.navTickets{
+border-bottom: white;
+border-bottom-style: solid;
+border-bottom-width: thin;
+}
+
+.navTop {
+border-bottom: white;
+border-bottom-style: solid;
+border-bottom-width: thin;
+}
+
+.DashDiv{
+padding : 0px;
+}
+.WorkOrderDiv {
+padding: 1rem !important;
+background-color: #00A5DC;
+   /* height: 47.8rem; */
+}
+.OrderDetailsDiv{
+padding : 0px;
+background-color: white;
+}
+.searchButton{
+width:90%;
+height: 32px;
+padding-left: 8px;
+}
+.OrderLabel{
+color: white;
+font-weight: initial;
+}
+.priorityBtn{
+background-color: #033D6D;
+/* border-color: #033D6D; */
+border: 0px;
+color: white;
+}
+.dateBtn{
+background-color: #033D6D;
+background-color: #033D6D;
+/* border-color: #033D6D; */
+border: 0px;
+color: white;
+}
+.row1{
+height: 7rem;
+float : left;
+}
+.row2{
+height: 18rem;
+float: left;
+}
+.row3{
+border-bottom-style: inset;
+border-bottom-width: thin;
+}
+.row4{
+border-bottom-style: inset;
+border-bottom-width: thin;
+}
+.labelBold{
+margin-top: 1rem;
+margin-left: 1rem;
+color: rgb(95, 95, 95);
+font-weight: bolder;
+font-size: medium;
+margin-bottom: 0rem;
+}
+.labelRegular{
+margin-left: 1.2rem;
+color: rgb(95, 95, 95);
+margin-bottom: 0rem;
+font-size: small;
+font-style: normal;
+width: inherit;
+font-weight: initial;
+}
+.enginePartImg{
+width: 77%;
+border-style: inset;
+border-width: thin;
+border: rgb(232, 232, 232);
+margin-left: 2rem;
+}
+.engineDetails{
+border: rgb(232, 232, 232);
+border-bottom-style: inset;
+border-bottom-width: thin;
+}
+.imgContainer{
+border: rgb(232, 232, 232);
+border-style: solid;
+border-width: thin;
+margin-right: 3rem;
+margin-left: 1rem;
+margin-top: 1rem;
+height: 16rem;
+}
+.orderContainer{
+margin-top: 1rem;
+}
+.containerText{
+font-size: small;
+margin-bottom: 0rem;
+}
+.containerTextBold{
+font-size: small;
+font-weight: bolder;
+margin-bottom: 0rem;
+}
+.buttonContainer{
+height: 4.5rem;
+margin-top: 0.5rem;
+}
+.button1{
+height: 3rem;
+width: 11rem;
+background-color:#68B542;
+border-radius: 0.2em;
+border-style: hidden;
+color:white;
+line-height: 3em;
+margin-left: 4rem;
+
+}
+.button2{
+height: 3rem;
+width: 11rem;
+background-color:#68B542;
+border-radius: 0.2em;
+border-style: hidden;
+color:white;
+line-height: 3em;
+margin-left: 1rem;
+}
+.button3{
+height: 3rem;
+width: 11rem;
+background-color:#68B542;
+border-radius: 0.2em;
+border-style: hidden;
+color:white;
+line-height: 3em;
+margin-left: 1rem;
+}
+.button4{
+height: 3rem;
+width: 11rem;
+background-color:#68B542;
+border-radius: 0.2em;
+border-style: hidden;
+color:white;
+color:white;
+line-height: 3em;
+margin-left: 1rem;
+}
+.gly1{
+margin-left: 3rem;
+font-size: 1.6em;
+margin-top:0.5rem;
+}
+.gly2{
+margin-left:3rem;
+font-size: 1.6em;
+margin-top:0.5rem;
+}
+.gly3{
+margin-left:1rem;
+font-size: 1.6em;
+margin-top:0.5rem;
+}
+.gly4{
+margin-left:1rem;
+font-size: 1.6em;
+margin-top:0.5rem;
+}
+.attachmentContainer{
+height: 12.5rem;
+}
+.attLabel{
+margin-left: 1rem;
+color: rgb(121, 120, 120);
+font-weight: 200;
+font-size: larger;
+margin-top: 0.3rem;
+}
+.iconContainer{
+height: 5rem;
+}
+.glyRefresh{
+font-size: 2em;
+color: grey;
+margin-top: 1.5rem;
+margin-left: 6rem;
+} 
+.glyAdd{
+font-size: 2em;
+color: grey;
+margin-top: 0.5rem;
+margin-left: 12rem;
+}
+.glyDelete{
+font-size: 2em;
+color: grey;
+margin-top: 0.5rem;
+margin-left: 12rem;
+}
+.glyFile{
+font-size: 2em;
+color: grey;
+margin-top: 0.5rem;
+margin-left: 12rem;
+}
+
+.thumbnailLabel{
+/*margin-left:2rem;*/
+margin-top: 1rem;
+font-weight: 700 !important;
+font-size: small !important;
+}
+.sortPanel{
+background-color:#00A5DC !important;
+}
+.filterPanel{
+background-color:#00A5DC !important;
+}
+.sortPanelContainer{
+width: 44%;
+}
+.filterPanelContainer{
+width: 44%;
+}
+.sortGly{
+margin-left: 0.5rem;
+font-size: small;
+}
+.sortHeading{
+background-color: #00A5DC !important;
+}
+.filterHeading{
+height: 28px;
+}
+.FilterL{
+margin-left:2rem;
+color: white !important;
+font-size: small;
+font-style: normal;
+font-weight: 700;
+}
+.SortL{
+margin-left:2rem;
+color: white !important;
+font-size: small;
+font-style: normal;
+font-weight: 700;
+}
+.label_color {
+    background-color: green;
+}
+.glyOpenPDF{
+margin-left: 0.5rem;
+font-size: 1.3rem;
+color: gray !important;
+}
+.addNotesBtn{
+background-color: #f5f5f5 !important;
+color: rgb(10, 9, 9) !important;
+/*margin-bottom: 2rem !important;*/
+}
+.removeNote{
+color:white;
+}
+
+.closebtn{
+color: #fff !important;
+background-color: #d9534f !important; 
+border-color: #d43f3a !important;
+float: right !important;
+}
+.noteTopDiv{
+background-color: white !important;
+}
+.abc{
+margin-bottom: 1rem !important;
+}
+.notesHeader{
+    background-color: #033D6D !important;
+}
+.notesTitle{
+color:white !important;
+}
+
+
+
+.panel-group.panelTop {
+margin-bottom: 0px !important;
+}
+.panel {
+ border: 0px solid transparent; 
+}
+.panel-heading {
+ padding: 0px 0px !important; 
+}
+.panel-title {
+margin-bottom: -4px;
+}
+.panel-group .panel-heading+.panel-collapse>.list-group, .panel-group .panel-heading+.panel-collapse>.panel-body {
+border-top: 0px solid #ddd;
+}
+
+
+.pagination li {
+  display:inline-block;
+  padding:5px;
+}
+.package {
+    /*border-bottom: white;
+    margin: 10px;
+    padding: 10px;
+    border-bottom-style: solid;
+    border-bottom-width: thin;*/
+}
+
+
+
+/*ChartNavbar*/
+.nav-tabs-dropdown {
+  display: none;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.nav-tabs-dropdown:before {
+  content: "\e114";
+  font-family: 'Glyphicons Halflings';
+  position: absolute;
+  right: 30px;
+}
+
+
+  #nav-tabs-wrapper {
+    display: block!important;
+  }
+
+
+    .nav-tabs-dropdown {
+        display: block;
+    }
+    #nav-tabs-wrapper {
+        display: none;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        text-align: center;
+    }
+   
+
+.navBAR { position: relative;
+    min-height: 1px;
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+.navBarInside{
+    margin-left: 0rem !important;    
+}
+
+.navBARWell{
+padding: 0px;
+border: 0px;
+border-radius: 0px;
+background-color: #00A5DC;
+}
+
+.nav-pills>li.active > a, .nav-pills> li.active > a:focus, .nav-pills>li.active>a:hover {
+    background-color: #018CC7 !important;
+}
+.nav-pills>li.active>a, .nav-pills>li.active>a:hover, .nav-pills>li.active>a:focus {
+    color: white !important;
+    
+}
+
+/*Custom Styling for Navbar*/
+a#navBARButton:hover{
+ background-color: #018CC7 !important;
+}
+a#navBARButton{
+color: white !important;
+}
+p {
+ margin: 0 0 0px; 
+}
+h1:not([style-scope]):not(.style-scope), h2:not([style-scope]):not(.style-scope), h3:not([style-scope]):not(.style-scope), h4:not([style-scope]):not(.style-scope), h5:not([style-scope]):not(.style-scope), h6:not([style-scope]):not(.style-scope), ul:not([style-scope]):not(.style-scope), ol:not([style-scope]):not(.style-scope), dl:not([style-scope]):not(.style-scope), blockquote:not([style-scope]):not(.style-scope), p:not([style-scope]):not(.style-scope), address:not([style-scope]):not(.style-scope), hr:not([style-scope]):not(.style-scope), table:not([style-scope]):not(.style-scope), fieldset:not([style-scope]):not(.style-scope), figure:not([style-scope]):not(.style-scope), pre:not([style-scope]):not(.style-scope) {
+margin-bottom: 0rem;
+}
+
+ul.containerText {
+margin-left: 0rem !important;
+padding-left: 1.5rem !important;
+}
+
+/*NotesHistory Accordion*/
+
+.panel-headingAcc a:after {
+    font-family: 'fontawesome';
+    content: "\f07d";
+    float: right;
+    color: grey;
+}
+.panel-headingAcc {
+    cursor: pointer;
+    cursor: hand;
+}
+.accordiondivAcc {
+    margin-left: 7%;
+    margin-right: 15%;
+    margin-top: 3%;
+    margin-bottom: : 5%;
+}
+
+.accordiondivlinkAcc{
+	color:#F5F5F5 !important;}
+	
+/*.panel-defaultAcc > .panel-heading{background-color: #4284FF !important;}*/
+
+.panel-groupAcc .panel {
+    margin-bottom: 50px;!important}
+    
+.panel-headingAcc a:after{color: white !important;
+	}
+/*Notes History Panel Body*/
+.ticketsPanel{
+/*background-color: #C4EAF7;*/
+  background-color:#f5f5f5 !important;
+}
+
+/*
+.panel-defaultAcc > .panel-heading {
+background-color: #033D6D !important;
+padding-top: 0.5rem !important;
+padding-bottom: 0.5rem !important;
+padding-left: 0.5rem !important;
+padding-right: 0.5rem !important;
+}*/
+.notesPanelHeading{
+background-color: #033D6D !important;
+padding-top: 0.5rem !important;
+padding-bottom: 0.5rem !important;
+padding-left: 0.5rem !important;
+padding-right: 0.5rem !important;
+}
+/*pagination*/
+.pagination>.active>a, .pagination>.active.imgContainer {
+}>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
+z-index: 0 !important;
+}
+a:not([style-scope]):not(.style-scope):link, a:not([style-scope]):not(.style-scope):visited {
+color: white !important;
+}
+a:not([style-scope]):not(.style-scope):active, a:not([style-scope]):not(.style-scope):hover {
+outline: 0;
+background-color: #033D6D !important;
+}
+
+.imgContainer {
+min-width: 380px !important;
+}
+
+i.imageSpinner {
+margin-top: 30% !important;
+margin-left: 50% !important;
+font-size: 30px !important;
+color:#033D6D !important;
+}
+.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
+z-index: 0 !important;
+}

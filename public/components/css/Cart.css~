@@ -1,0 +1,93 @@
+.mainCartDiv{
+background-color: white;
+padding-top: 2% !important;
+}
+.cartItemsDiv{
+height: 10rem !important;
+}
+.thumbnailMargin{
+margin-right: 1rem !important;
+}
+.emptyCart{
+height:16rem !important;
+}
+.cartBtn{
+background-color: #68B542 !important;
+color: white !important; 
+border-color: #68B542 !important; 
+}
+.removeCartItem{
+background-color: #d9534f !important;
+color: white !important; 
+border-color:#d9534f !important; 
+font-weight: normal !important;
+}
+.cartAlign{
+padding-top: 1% !important;
+}
+.cartIcon{
+
+}
+.emptyCartLabel{
+	margin-top: 14%;
+	font-weight: bold;
+	font-size: 140%;
+	color: rgb(148, 37, 37);
+	font-family: sans-serif;
+	margin-left: -8% !important;
+}
+.circleIcon1 {
+    background: #D9DCDF none repeat scroll 0% 0%;
+    width: 7%;
+    border-radius: 50%;
+    font-size: 4.5em;
+    padding-right: 0px;
+    padding-left: 7px;
+    float: left !important;
+    margin-left: 47%;
+    margin-top: 4%;
+} 
+
+
+
+.media-heading {
+/*margin-bottom: 5px;*/
+margin-bottom: 0.4rem !important;
+/*margin-top: 0;*/
+}
+.media, .media-body {
+overflow: hidden;
+zoom: 1;
+padding-top: 1%;
+}
+.media-object{
+width: 60px !important;
+height: 60px !important;
+}
+:not([style-scope]):not(.style-scope):root b, :not([style-scope]):not(.style-scope):root strong {
+font-weight: bold;
+font-size: inherit;
+}
+i.cartSpinner {
+margin-top: 12% !important;
+margin-left: 50% !important;
+font-size: 30px !important;
+color: #033D6D !important;
+margin-bottom: 10% !important;
+}
+.orderPlacedAlert {
+display: inline-block;
+position: absolute;
+top: 15px;
+left: 592px;
+display: none;
+}
+.orderPlacedBuffer
+{
+color:yellow !important;
+margin-left: 50%;
+font-size: 30px !important;
+}
+.cartLabel{
+color :#033D6D;
+}

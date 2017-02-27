@@ -1,0 +1,11 @@
+define(['angular', './sample-module'], function (angular, controllers) {
+    'use strict';
+
+    // Controller definition
+    controllers.controller('CartController', ['$scope','$state','$rootScope', function ($scope,$state,$rootScope) {
+
+
+
+
+}]); //End Of Controller
+});

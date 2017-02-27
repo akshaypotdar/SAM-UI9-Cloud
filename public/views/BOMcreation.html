@@ -1,0 +1,457 @@
+<link rel="stylesheet" type="text/css" href="../components/css/BOMcreation.css">
+<link rel="stylesheet" type="text/css" href="../components/css/carousel.css">
+<link rel="stylesheet" type="text/css" href="../components/css/index.css">
+<link rel="stylesheet" type="text/css" href="../components/css/BOM-selection.css">
+<script src="components/js/modernizer.js" type="text/javascript"></script>
+<script src="components/js/imagezoom.js" type="text/javascript"></script>
+<script src="components/js/jquery.flexslider.js" type="text/javascript"></script>
+<!--script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script--> 
+<!--script type="text/javascript" src="../components/Zoom-In-Out/ZoomPlugin/libs/jquery/jquery-ui.js"></script>
+<script type="text/javascript" src="../components/Zoom-In-Out/ZoomPlugin/src/imgViewer.js"></script>
+<script type="text/javascript" src="libs/jquery.mousewheel.min.js"></script>
+<script src="../components/Zoom-In-Out/ZoomPlugin/libs/jquery.fs.zoetrope.min.js"></script>
+<script src="../components/Zoom-In-Out/ZoomPlugin/libs/hammer.min.js"></script>
+<script src="../components/Zoom-In-Out/ZoomPlugin/libs/jquery.hammer.js"></script-->
+<style>
+#drag-img
+
+	{position:relative;
+
+	height:454px;
+
+	width:564px}
+
+#container
+
+	{overflow:hidden!important;
+
+	background:white;
+
+	height:500px;
+
+	width:1000px}
+
+.button
+
+	{width:200px;
+
+	height:50px}
+#thediv1 {height:50rem; width:50rem; display:block; overflow:hidden; outline: 2px solid #777777; padding:20px;}
+
+
+
+#thediv {
+    margin:0 auto;
+	height:400px;
+	width:400px;
+	overflow:hidden;
+	}
+
+/* Banner */
+#banner {
+	background-color: #ededed;
+	background-size: cover;
+	background-position: center center;
+	height: 200px;
+	padding-top: 200px;
+	position: relative;
+}
+#banner .hot-spot {
+	background-color: #ffdd00;
+	-webkit-border-radius: 1000px;
+	-moz-border-radius: 1000px;
+	border-radius: 1000px;
+	color: #fff;
+	cursor: pointer;
+	display: none;
+	font-size: 20px;
+	height: 45px;
+	left: 50%;
+	position: absolute;
+	text-align: center;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	width: 45px;
+}
+#banner .hot-spot i {
+	line-height: 45px;
+}
+ .hot-spot i {
+	line-height: 45px;
+	margin-left: 0.25rem;
+}
+#banner .hot-spot .tooltip {
+	background-color: #fff;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 0px;
+    color: #333;
+	display: none;
+	font-size: 14px;
+	left: 0px;
+	opacity: 1;
+	padding: 15px 20px 20px;
+	position: absolute;
+	text-align: left;
+	top: 55px;
+	width: 200px;
+	z-index: 999;
+}
+#banner .hot-spot .tooltip h4 {
+	margin-bottom: 10px;
+}
+#banner .hot-spot .tooltip p {
+	font-size: 14px;
+	line-height: 24px;
+	margin-bottom: 10px;
+}
+ .hot-spot .tooltip {
+	background-color: #CFCFCF;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 0px;
+    color: #333;
+	display: none;
+	font-size: 14px;
+	left: 80px;
+	opacity: 0.9;
+	padding: 15px 20px 20px;
+	position: absolute;
+	text-align: left;
+	top: 24px;
+	width: 200px;
+	z-index: 999;
+}
+ .hot-spot .tooltip h4 {
+	margin-bottom: 10px;
+}
+ .hot-spot .tooltip p {
+	font-size: 14px;
+	line-height: 24px;
+	margin-bottom: 10px;
+}
+
+</style>
+
+<div class="col-md-12 MainDiv">
+	<div class="col-md-4 BOM-container">
+		<div class="BOM-details-container">
+			
+			<div class="BOM-details-container" >
+			<label class="label1">Bill of Material Details</label>
+				
+
+				<div class="col-md-12 bombtndiv">
+					<div class="col-md-2">
+						
+						<button class="btn addBOM" ng-click="addRow()" data-ng-hide="editMode1"><span class="glyphicon glyphicon-plus"></span></br>Add
+						</button><button  class="btn editBOM" data-ng-show="editMode1" data-ng-click="editMode1 = false; cancelAdd()"><span class="fa fa-undo"></span></br>Cancel</button>
+					</div>
+					<div class="col-md-2">
+						<button class="btn deleteBOM"><span class="glyphicon glyphicon-remove"></span></br>Delete</button>
+					</div>
+					<div class="col-md-2">
+						<button class="btn editBOM" data-ng-hide="editMode" data-ng-click="editMode = true;" >
+							<span class="glyphicon glyphicon-pencil"></span></br>Edit
+						</button>
+						<button  class="btn editBOM" data-ng-show="editMode" data-ng-click="editMode = false; cancel()"><span class="fa fa-undo"></span></br>Cancel</button>
+					</div>
+					<div class="col-md-2">
+						<button class="btn compareBOM"><span class="fa fa-balance-scale"></span></br>Compare</button>
+					</div>
+					<div class="col-md-2">
+						<button class="btn exportBOM dropdown-toggle" data-toggle="dropdown"><span class="fa fa-share"></span></br>Export</button>
+						  <ul class="dropdown-menu exportMenu">
+						    <li class="exportMenuList" ng-click="exportToXls('xlsx')"><a href="#">Export to Excel</a></li>
+						    <li class="exportMenuList" ng-click="exportToXls('csv')"><a href="#">Export to CSV</a></li>
+						  </ul>
+					</div>
+					<div class="col-md-2">
+						<button class="btn zipBOM"><span class="fa fa-file-archive-o"></span></br>Zip</button>
+					</div>
+
+				</div>
+
+			<div class="col-md-12 BOMrow2">
+				<table class="table table-bordered BOMtable">
+				    <thead class="BOMThead">
+				      <tr>
+							<th>Sr</th>
+							<th>Description</th>
+							<th>Part No</th>
+							<th>Qty</th>
+							<th>Weight</th>
+							<th>Unit Cost</th>
+							<th>Total Cost</th>
+							<th>All</th>
+				      </tr>
+				    </thead>
+				    <tbody class="BOMTbody">
+					<tr ng-hide="loadingRow">
+							<th colspan='8' class="loading">loading...</th>
+				      </tr>
+				     <tr  class="" id="row-{{$index}}" ng-repeat="x in BOMDetail | orderBy:'-SrNo.toString()':true" >
+							<td>{{getSrNo(x.SrNo)}} </td>
+							<td>{{x.partname}}</td>
+							<td>{{x.partno}}</td>
+							<td ><span data-ng-hide="editMode">{{x.qty}}</span>
+							<input type="text" id="Quantitytext" class="Quantitytext" data-ng-show="editMode" ng-model="x.qty" data-ng-required />
+							</td>
+
+							<td>{{x.totalweight}}</td>
+							<td>{{x.unitcost}}</td>
+							<td>{{x.qty * x.unitcost}}</td>
+
+
+							<td ng-class="$parent.highlightCss"><input type="checkbox" ng-model="x.checked" id="checking-{{$index}}" ng-true-value="1" ng-false-value="0"  ng-click="setClickedRow($index,x)"></td>
+							
+							
+           		
+					</tr>
+					<tr ng-show="show">
+							<td >
+							  <input type="text" ng-model="new.SrNo" class="addBOMRow">
+							</td>
+							<td>
+							  <input type="text" ng-model="new.Description" class="addBOMRow">
+							</td>
+							<td>
+							  <input type="text" ng-model="new.PartNo" class="addBOMRow">
+							</td>
+							<td>
+							  <input type="text" ng-model="new.Qty" class="addBOMRow">
+							</td>
+							<td>
+							  <input type="text" ng-model="new.Weight" class="addBOMRow">
+							</td>
+							<td>
+							  <input type="text" ng-model="new.UnitCost" class="addBOMRow">
+							</td>
+							<td>
+							  <input type="text" ng-model="new.TotalCost" class="addBOMRow">
+							</td>
+							<td>
+							  <input type="checkbox" class="addBOMRow">
+							</td>
+					</tr>
+				    </tbody>
+  				</table>
+
+			</div>
+
+		</div>
+			
+			
+		</div>
+
+		<div class="BOM-buttons-container">
+			<div class="col-md-12 buttonRow1">
+				
+				<button class="buttonAddToCart" ng-click="selectedItems()">Add to Cart
+					<span class="glyphicon glyphicon-shopping-cart glyCart"></span>
+				</button> 
+				<button class="buttonRepair">Send to Repair<span class="glyphicon glyphicon glyphicon-wrench glyRepair"></span></button>
+			</div>
+
+			<div class="col-md-12 buttonRow2">
+				<button class="buttonSchedule">Schedule Field Service</button>
+				<button class="buttonCheckS">Check Substitute</button>
+			</div>
+			
+		</div>
+	</div>
+	<div class="col-md-8 Asset-details-container">
+		<div class="col-md-12 Row1">
+			<label class="assetLabel">Order Id: {{getAssetName(OrderId)}}</label>
+			<span class="alert alert-success dragMsg">
+				<strong>Drag to select parts!</strong> 
+			</span>
+			
+		</div>
+
+		<div class="col-md-12 Row2">
+			<!-- Carousel start --><i class="fa fa-spinner fa-spin imageSpinnerBom" ng-hide="images"></i>
+			<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false" ng-show="images">
+				    <!-- Indicators -->
+				    <ol class="carousel-indicators">
+				      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+				      <li data-target="#myCarousel" data-slide-to="1"></li>
+				      <li data-target="#myCarousel" data-slide-to="2"></li>
+				      <li data-target="#myCarousel" data-slide-to="3"></li>
+				    </ol>
+
+				    <!-- Wrapper for slides -->
+				    <div class="carousel-inner" role="listbox">
+
+
+						<div class="item col-md-12 active">
+					
+						<div id="banner" class="carouselM col-md-12" style="background-image:url('{{blobURL}}{{images.img_front}}'); height:454px; width:564px;">
+							<div id="front">
+								<div id="front-ghost" ><span></span></div>
+							</div>
+						</div>
+						<div ng-cloak class="elements hot-spot square" id="{{value.partname}}" ng-click="getBOMdetails(value.partname)" ng-style="{'top' : '{{value.hsp_front.top}}px','left' : '{{value.hsp_front.left}}px'}" ng-repeat="value in hotSpotArray">
+						<i class="fa fa-plus"></i>
+							<div class="tooltip">
+									<h4>{{value.partname}}</h4>
+									<p>Equipment Id: {{value.partno}}</p>
+				
+							</div>
+						</div>
+				      </div>
+
+				      <div class="item col-md-12 ">
+						<div id="banner" class="carouselM col-md-12" style="background-image:url('{{blobURL}}{{images.img_back}}'); height:454px; width:564px;">
+							<div  id="back">
+								<div id="back-ghost" ><span></span></div>
+							</div>
+						</div>
+						<div ng-cloak class="elements hot-spot square" id="{{value.partname}}" ng-click="getBOMdetails(value.partname)" ng-style="{'top' : '{{value.hsp_front.top}}px','left' : '{{value.hsp_front.left}}px'}" ng-repeat="value in hotSpotArray">
+						<i class="fa fa-plus"></i>
+							<div class="tooltip">
+									<h4>{{value.partname}}</h4>
+									<p>Equipment Id: {{value.partno}}</p>
+				
+							</div>
+						</div>
+				      </div>
+				      
+				      <div class="item col-md-12">
+					
+						<div id="banner" class="carouselM col-md-12" style="background-image:url('{{blobURL}}{{images.img_top}}'); height:454px; width:564px;">
+							<div id="top">
+								<div id="top-ghost"><span></span></div>
+							</div>
+						</div>
+						<div ng-cloak class="elements hot-spot square" id="{{value.partname}}" ng-click="getBOMdetails(value.partname)" ng-style="{'top' : '{{value.hsp_front.top}}px','left' : '{{value.hsp_front.left}}px'}" ng-repeat="value in hotSpotArray">
+						<i class="fa fa-plus"></i>
+							<div class="tooltip">{{$index+1}}
+									<h4>{{value.partname}}</h4>
+									<p>Equipment Id: {{value.partno}}</p>
+				
+							</div>
+						</div>
+				      </div>
+				      
+				      <div class="item col-md-12">
+					
+						<div id="banner" class="carouselM col-md-12" style="background-image:url('{{blobURL}}{{images.img_bottom}}'); height:454px; width:564px;">
+							<div id="bottom">
+								<div id="bottom-ghost" ><span></span></div>
+							</div>
+						</div>
+						<div ng-cloak class="elements hot-spot square" id="{{value.partname}}" ng-click="getBOMdetails(value.partname)" ng-style="{'top' : '{{value.hsp_front.top}}px','left' : '{{value.hsp_front.left}}px'}" ng-repeat="value in hotSpotArray">
+						<i class="fa fa-plus"></i>
+							<div class="tooltip">{{$index+1}}
+									<h4>{{value.partname}}</h4>
+									<p>Equipment Id: {{value.partno}}</p>
+				
+							</div>
+						</div>
+				      </div>
+				    
+			</div></div>
+			<!-- Carousel end -->
+		</div>
+		<div class="col-md-12 Row3">
+				<button class="buttonFront" href="#myCarousel" data-slide-to="0" ng-click="setImagePath(images.img_front,'front')">Front</button>
+				<button class="buttonBack " href="#myCarousel" data-slide-to="1" ng-click="setImagePath(images.img_back,'back')">Back</button>
+				<button class="buttonRear" href="#myCarousel" data-slide-to="2" ng-click="setImagePath(images.img_top,'top')">Top</button>
+				<button class="buttonTop" href="#myCarousel" data-slide-to="3" ng-click="setImagePath(images.img_bottom,'bottom')">Bottom</button>		
+				<button class="buttonZoom1" data-toggle="modal" data-target="#zoomModal1">Zoom</button>
+				<span class="glyphicon glyphicon-refresh glyRefresh"></span>
+		</div>
+	</div>
+</div>
+
+
+
+<div class="alert alert-danger exportAlert" id="exportAlertId">
+	<strong>Warning!</strong> No items selected.
+</div>
+
+<div class="alert alert-success addToCartAlert" id="addToCartAlertId">
+	<strong>Success!</strong> Items are added to cart.
+</div>
+<div class="alert alert-danger addToCartAlert" id="addToCartAlertId1">
+	<strong>Warning!</strong> No items selected.
+</div>
+<div class="modal fade" id="zoomModal1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header" id="modal_header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+        		<img src="{{modelImage}}" alt="image" style="width:45%; height:45%;" data-imagezoom="true">
+        </div>
+        <div class="modal-footer">
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<script>
+
+
+
+//Image Hotspot
+$(document).ready(function() {
+	positionHotSpots();
+});
+
+$(window).on('resize', function() {
+	positionHotSpots();
+});
+
+/* Hotspots */
+var imageWidth = 1920 - 200;
+var imageHeight = 1000;
+var imageAspectRatio = imageWidth / imageHeight;
+
+function positionHotSpots() {
+	var bannerWidth = $('#banner').width();
+	var bannerHeight = $('#banner').height();
+	$('.hot-spot').each(function() {
+		var xPos = $(this).attr('x');
+		var yPos = $(this).attr('y');
+		if (imageWidth > bannerWidth) {
+			xPos = xPos * (((100 / bannerWidth) * imageWidth) / 100);
+			yPos = imageWidth / 100 * yPos + 'px';
+		} else {
+			yPos = yPos + '%';
+		}
+		$(this).css({
+			'margin-left': xPos + '%',
+			'margin-top': yPos,
+			'display': 'block',
+		});
+		$(this).children('.tooltip').css({
+			'margin-left': - ($(this).children('.tooltip').width() / 2)
+		});
+	});
+}
+	
+$(document).on('click', '.hot-spot', function() {
+	if ($(this).children('.tooltip').is(':visible')) {
+		$(this).children('i').attr('class','fa fa-plus');
+		$(this).children('.tooltip').css('display', 'none');
+	} else {
+		$('.hot-spot .tooltip').css('display', 'none');
+		$('.hot-spot i').attr('class','fa fa-plus');
+		$(this).children('i').attr('class','fa fa-minus');
+		$(this).children('.tooltip').css('display', 'block');
+		if ($(window).width() - ($(this).children('.tooltip').offset().left + $(this).children('.tooltip').outerWidth()) < 0) {
+			$(this).children('.tooltip').css({
+				'right': '0',
+				'left': 'auto',
+			});
+		}
+	}
+});
+
+
+
+</script>

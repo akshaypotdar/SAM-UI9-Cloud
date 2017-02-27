@@ -1,0 +1,119 @@
+<link rel="stylesheet" type="text/css" href="../components/css/Cart.css">
+
+<div class="mainCartDiv">
+
+
+<!--div class="col-md-12">
+	<div class="row cartItemsDiv">
+		<div class="col-md-4">
+			<img src="engine5.jpg">
+		</div>
+		<div class="col-md-4">
+			{{data.uri}}
+		</div>
+	</div>
+</div-->
+<div ng-hide="cartCounter" class="emptyCart">
+	<div class="col-md-12">
+	  <div class="row">
+		<div><span class="circleIcon1"><span class="glyphicon glyphicon-shopping-cart cartIcon"></span></span></div>
+		<div><label class="emptyCartLabel">Cart is Empty!</label></div>
+	  </div>
+	</div>
+</div><!--button ng-click="del()">delete</button-->
+<div class="container" ng-show="cartCounter">
+	<i class="fa fa-spinner fa-spin cartSpinner" ng-hide="cartItemAvailability"></i>
+    <div class="row" ng-show="cartItemAvailability">
+        <div class="col-sm-12 col-md-10 col-md-offset-1">
+	   <label class="cartLabel">Cart Items</label>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th class="text-center">Unit Cost</th>
+                        <th class="text-center">Total Cost</th>
+                        <th> </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="data in cartdata track by $index">
+                        <td class="col-sm-8 col-md-6">
+                        <div class="media">
+                            <a class="thumbnail pull-left thumbnailMargin" href="#"> <img class="media-object" src="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/72/product-icon.png" style="width: 72px; height: 72px;"> </a>
+                            <div class="media-body">
+                                <h5 class="media-heading"><a href="#">{{data.partname}}</a></h5>
+                                <h6 class="media-heading">  <a href="#">Weight : {{data.Weight}}</a></h6>
+                                <h6><span>Part Details </span><span class="text-success"><strong>Part No : {{data.partno}}</strong></span></h6>
+                            </div>
+                        </div></td>
+                        <td class="col-sm-1 col-md-1 cartAlign" style="text-align: center">
+			 <input type="email" class="form-control" id="exampleInputEmail1" value="{{data.qty}}" disabled>
+			</td>
+                        <td class="col-sm-1 col-md-1 text-center cartAlign"><strong>{{data.unitcost}}</strong></td>
+                        <td class="col-sm-1 col-md-1 text-center cartAlign"><strong>{{data.qty * data.unitcost}}</strong></td>
+                        <td class="col-sm-1 col-md-1 cartAlign">
+                        <button type="button" class="btn btn-danger removeCartItem" ng-click="removeCartItem(data.uri,$index)">
+                            <span class="glyphicon glyphicon-remove"></span> Remove
+                        </button></td>
+                    </tr>
+                    
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td>   </td>
+                        <td>   </td>
+                        <td>   </td>
+                        <td><h3>Total</h3></td>
+                        <td class="text-right"><h3>&#8377;{{getNetAmount()}}</h3></td>
+                    </tr>
+                    <tr>
+                        <td>   </td>
+                        <td>   </td>
+                        <td>   </td>
+                        <td>
+                        <button type="button" class="btn btn-default cartBtn" ng-click="navigateToBOM">
+                            <span class="glyphicon glyphicon-shopping-cart"></span> Continue
+                        </button></td>
+                        <td>
+                        <button type="button" class="btn btn-success cartBtn" data-toggle="modal" data-target="#PlaceOrder">
+                            Checkout <span class="glyphicon glyphicon-play"></span>
+                        </button></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Place order Confirm Modal -->
+<div id="PlaceOrder" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-sm">
+
+	 <!-- Modal content-->
+    <div class="modal-content">
+	      <div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+	      </div>
+	      <div class="modal-body">
+	      	This cart items will directly move to order placement asset. Confirm?
+	      </div>
+	      <div class="modal-footer">
+		<button type="button" class="btn btn-default" ng-click="placeOrder()" data-dismiss="modal">Yes</button> 
+		<button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+	      </div>
+    </div>
+
+
+  </div>
+</div> 
+
+<!--i class="fa fa-spinner fa-spin orderPlacedBuffer" ng-hide="succesVar"></i-->
+</div>
+
+
+<div class="alert alert-success orderPlacedAlert" id="orderPlacedAlert" >
+	<strong>Success!</strong> The Order has been Placed!
+</div>

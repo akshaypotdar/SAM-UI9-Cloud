@@ -1,0 +1,82 @@
+/*Selection*/
+
+.ghost-select {
+  display: none;
+  z-index: 9000;
+  position: absolute !important;
+  cursor: default !important;
+}
+
+h3 {
+  position: absolute;
+  color: #ffffff;
+  border-bottom: 1px solid #fff;
+  left: 20px;
+}
+
+.elements {
+  position: absolute;
+}
+
+.square {
+  width: 27px;
+  height: 27px;
+  z-index: 100;
+  background-color: rgba(254, 255, 253, 0.62);
+  /*left: 421px;
+  top: 122px;*/
+  left :0px;
+  border-style: groove;
+  border-color: black;
+}
+
+#ball {
+  width: 27px;
+  height: 27px;
+  z-index: 100;
+  border-radius: 100%;
+  background-color:rgba(254, 255, 253, 0.62);
+  border-color: black;
+  border-style: groove;
+  left: 250px;
+  top: 122px;
+}
+
+.glyHotspot{
+margin-left:0.2rem;
+}
+
+#score {
+  position: absolute;
+  top: 0px;
+  left: 200px;
+  color: #ffffff;
+}
+
+.big-ghost{
+  background-color:rgba(239, 28, 190, 0.6);
+  border:1px solid #aaf81a;
+  position:absolute;
+}
+
+
+.ghost-active {
+  display: block !important;
+}
+
+.ghost-select > span {
+  background-color: rgba(239, 28, 190, 0.6);
+  border: 1px solid #b20e8c;
+  float: left;
+}
+
+
+.grid {
+height: 30rem;
+position: absolute;
+/*background-color: rgba(0, 0, 0, 0.29);*/
+top: 0rem;
+width: 52rem;
+left: -2rem;
+}
+

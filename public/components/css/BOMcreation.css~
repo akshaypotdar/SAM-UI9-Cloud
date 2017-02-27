@@ -1,0 +1,410 @@
+.MainDiv{
+padding : 0px !important;
+}
+.BOM-container{
+padding : 0px !important;
+}
+.BOM-details-container{
+height: 32rem;
+background-color: #00A5DC;
+}
+.BOM-buttons-container{
+height: 12rem;
+background-color: #036CAC;
+}
+.Asset-details-container{
+height: 44rem;
+background-color: white;
+padding : 0px !important;
+}
+.label1{
+color: white;
+font-weight: bold;
+font-size: inherit;
+margin-left: 1rem;
+margin-top: 1rem;
+margin-bottom: 1rem;
+}
+.assetLabel{
+margin-left: 1rem;
+margin-top: 1rem;
+color: rgb(107, 105, 105);
+font-weight: bold;
+font-size: larger;
+}
+.Row3{
+margin-top: 2rem;
+}
+.buttonFront{
+width: 5rem;
+height: 2.3rem;
+background-color: #BFC2C3;
+border-style: hidden;
+border-radius: 0.1rem;
+font-size: initial;
+font-weight: 600;
+margin-left: 7rem;
+}
+.buttonBack{
+width: 5rem;
+height: 2.3rem;
+background-color: #BFC2C3;
+border-style: hidden;
+border-radius: 0.1rem;
+font-size: initial;
+font-weight: 600;
+margin-left: 0.5rem;
+}
+.buttonRear{
+width: 5rem;
+height: 2.3rem;
+background-color: #BFC2C3;
+border-style: hidden;
+border-radius: 0.1rem;
+font-size: initial;
+font-weight: 600;
+margin-left: 0.5rem;
+}
+.buttonTop{
+width: 5rem;
+height: 2.3rem;
+background-color: #BFC2C3;
+border-style: hidden;
+border-radius: 0.1rem;
+font-size: initial;
+font-weight: 600;
+margin-left: 0.5rem;
+}
+.buttonZoom{
+width: 5rem;
+height: 2.3rem;
+background-color: #BFC2C3;
+border-style: hidden;
+border-radius: 0.1rem;
+font-size: initial;
+font-weight: 600;
+margin-left: 6rem;
+}
+.buttonZoom1{
+width: 5rem;
+height: 2.3rem;
+background-color: #BFC2C3;
+border-style: hidden;
+border-radius: 0.1rem;
+font-size: initial;
+font-weight: 600;
+margin-left: 6rem;
+}
+.glyZoomIn{
+color: grey;
+font-size: 2rem;
+margin-left: 6rem;
+}
+.glyZoomOut{
+color: grey;
+font-size: 2rem;
+margin-left: 1rem;
+}
+.glyRefresh{
+color: grey;
+font-size: 2rem;
+margin-left: 1rem;
+}
+.glyCart{
+color:white;
+margin-left: 3rem;
+font-size: 1.2rem;
+}
+.glyRepair{
+color:white;
+margin-left: 1rem;
+font-size: 1.2rem;
+}
+.buttonRow1{
+margin-top:2rem;
+}
+.buttonAddToCart{
+height: 3rem;
+width: 11rem;
+background-color:#68B542;
+border-radius: 0.2em;
+border-style: hidden;
+color:white;
+line-height: 3em;
+}
+.buttonRepair{
+height: 3rem;
+width: 11rem;
+background-color:#68B542;
+border-radius: 0.2em;
+border-style: hidden;
+color:white;
+line-height: 3em;
+margin-left: 2rem;
+}
+.buttonSchedule{
+height: 3rem;
+width: 11rem;
+background-color:#68B542;
+border-radius: 0.2em;
+border-style: hidden;
+color:white;
+line-height: 3em;
+}
+.buttonCheckS{
+height: 3rem;
+width: 11rem;
+background-color:#68B542;
+border-radius: 0.2em;
+border-style: hidden;
+color:white;
+line-height: 3em;
+margin-left: 2rem;
+}
+.buttonRow2{
+margin-top:2rem;
+}
+.BOMrow1{
+/*background-color:#018CC7;*/
+background-color:white;
+height: 3rem;
+padding-left: 0px !important;
+padding-right: 0px !important;
+}
+.BOMrow2{
+/*overflow: scroll;*/
+height: 26rem;
+}
+.BOMThead{
+font-size: smaller;
+color: white;
+}
+.BOMTbody{
+font-size: smaller;
+color: white;
+}
+.BOMtable{
+margin-top: 1rem;
+width: 25rem;
+border: 1px solid white !important;
+max-width: 200% !important;
+width: 104%;
+margin-left: -0.5rem;
+}
+.addBOM{
+font-size: smaller !important;
+color: white !important;
+background-color:#018CC7 !important;
+border: 1px solid #018CC7 !important;
+border-radius: 0px !important;
+height:3rem !important;
+/*margin-left:0rem !important;
+width: 4rem !important;*/
+}
+.deleteBOM{
+font-size: smaller !important;
+color: white !important;
+background-color:#018CC7 !important;
+border: 1px solid #018CC7 !important;
+border-radius: 0px !important;
+height:3rem !important;
+/*width: 4rem !important;
+margin-left:0.2rem !important;*/
+}
+.editBOM{
+font-size: smaller !important;
+color: white !important;
+background-color:#018CC7 !important;
+border: 1px solid #018CC7 !important;
+border-radius: 0px !important;
+height:3rem !important;
+margin-left: 0px !important;
+/*width: 4rem !important;
+margin-left:0.2rem !important;*/
+}
+.compareBOM{
+font-size: smaller !important;
+color: white !important;
+background-color:#018CC7 !important;
+border: 1px solid #018CC7 !important;
+border-radius: 0px !important;
+height:3rem !important;
+/*width: 4.7rem !important;
+margin-left:0.2rem !important;*/
+}
+.exportBOM{
+font-size: smaller !important;
+color: white !important;
+background-color:#018CC7 !important;
+border: 1px solid #018CC7 !important;
+border-radius: 0px !important;
+height:3rem !important;
+/*width: 4rem !important;
+margin-left:0.2rem !important;*/
+}
+.zipBOM{
+font-size: smaller !important;
+color: white !important;
+background-color:#018CC7 !important;
+border: 1px solid #018CC7 !important;
+border-radius: 0px !important;
+height:3rem !important;
+/*width: 4rem !important;
+margin-left:0.2rem !important;*/
+}
+
+.bombtndiv >.col-md-2 >button.btn {
+width: 120% !important;
+}
+
+.col-md-12.bombtndiv {
+padding-left: 0px !important;
+padding-right: 0px !important;
+}
+.bombtndiv >.col-md-2 {
+padding-left: 0px !important;
+}
+.bombtndiv >.col-md-2 >button.btn:active {
+background-color:#033D6D !important;
+}
+.descriptionTh{
+width: 8rem;
+font-family: sans-serif;
+}
+.zoomout{
+background-color :#036CAC !important;
+color:white;
+border-style: hidden;
+height: 2rem;
+}
+.zoomin{
+background-color :#036CAC !important;
+color:white;
+border-style: hidden;
+height: 2rem;
+margin-left: 1rem;
+margin-right: 2rem;
+}
+/*BOM edit-save start*/
+input,textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    color: blue;
+} 
+ .highlight-row{
+	background-color:#033D6D !important;
+} 
+/*BOM edit-save start*/
+
+.addBOMRow{
+width: 88% !important;
+height: 103% !important;
+color:#033D6D !important;
+}
+.Quantitytext{
+width: 93% !important;
+height: 111% !important;
+color:#033D6D !important;
+}
+.cancelEdit{
+color: white !important;
+background-color: #033D6D !important;
+border-color: #033D6D !important;
+height: 6% !important;
+font-size: small !important;
+padding-left: 0.5rem !important;
+width: 15% !important;
+margin-left: 9rem !important;
+}
+
+
+/* hotspot */
+#banner .hot-spot {
+background-color: rgba(0, 0, 0, 0.47) !important;
+}
+
+
+
+
+.modal-lg {
+width: 1090px;
+}
+body.modal-open .supreme-container{
+    -webkit-filter: blur(2px);
+    -moz-filter: blur(2px);
+    -o-filter: blur(2px);
+    -ms-filter: blur(2px);
+    filter: blur(2px);
+}
+
+
+/* hotspot */
+#banner .hot-spot {
+background-color: rgba(0, 0, 0, 0.47) !important;
+}
+
+/* BOM Table */
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+padding: 3px;
+line-height: 1.308571;
+vertical-align: super;
+border-top: 1px solid #ddd;
+}
+.table-bordered>thead>tr>td, .table-bordered>thead>tr>th {
+border-bottom-width: 0px !important;
+}
+th{
+font-family: sans-serif !important;
+}
+.loading{
+text-align:center;
+}
+
+.carousel-indicators {
+position: absolute !important;
+bottom: 10px !important;
+left: 50% !important;
+ z-index: 0 !important; 
+/* width: 60%; */
+padding-left: 0 !important;
+margin-left: -30% !important;
+text-align: center !important;
+list-style: none !important;
+}
+
+i.imageSpinnerBom{
+margin-top: 25% !important;
+margin-left: 35% !important;
+margin-bottom: 25% !important;
+font-size: 30px !important;
+color:#033D6D !important;
+}
+ul.exportMenu {
+margin-left: 0rem !important;
+background-color: #018CC7;
+border-radius: 0px;
+}
+li.exportMenuList a {
+color: white !important;
+}
+li.exportMenuList a:hover {
+color: #018CC7 !important;
+}
+.exportAlert{
+display: inline-block;
+position: absolute;
+top: 97px;
+left: 377px;
+display: none;
+}
+.addToCartAlert{
+display: inline-block;
+position: absolute;
+top: 462px;
+left: 114px;
+display: none;
+}
+.dragMsg{
+
+}

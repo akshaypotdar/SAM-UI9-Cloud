@@ -1,0 +1,466 @@
+<link rel="stylesheet" type="text/css" href="../components/css/Dashboard.css">
+<link rel="stylesheet" type="text/css" href="../components/css/carouselDashboard.css">
+<link rel="stylesheet" type="text/css" href="../components/css/imgModal.css">
+ <style>
+        #gallery .thumbnail{
+            width:102px;
+            height: 102px;
+            float:left;
+            margin:8px;
+        }
+        #gallery .thumbnail img{
+            width:130px;
+            height: 89px;
+        }
+
+    </style>
+
+<div class="col-md-12 DashDiv">
+	<div id="nav-tabs-wrapper" class="col-md-3 WorkOrderDiv navBAR">
+		<div class="row">
+        <div id="search-results"> 
+		<div class="navTop">
+			    <input type="text" class="search form-group searchButton" placeholder="Search Work Order"/><br /> 
+
+			    <div class="panel-group panelTop">
+				    <div class="panel panel-default">
+				      <div class="panel-heading sortHeading">
+					<div class="panel-title">
+					  <a data-toggle="collapse" href="#collapse1" class="SortL">
+						Sort<span class="glyphicon glyphicon-sort-by-attributes sortGly"></span>
+					  </a>
+					  <a data-toggle="collapse" href="#collapse2" class="FilterL">
+						Filter<span class="glyphicon glyphicon-filter sortGly"></span>
+					  </a>
+					</div>
+				      </div>
+				      <div id="collapse1" class="panel-collapse collapse">
+					<div class="panel-body sortPanel">
+						    <label class="OrderLabel">Sort by:</label>
+						    <button class="sort priorityBtn" data-sort="priority">
+							Priority <i class="fa fa-fw"></i>
+						    </button>
+						    <button class="sort dateBtn" data-sort="date">
+						       Date <i class="fa fa-fw"></i>
+						    </button>
+					</div>
+				      </div>
+
+				      <div id="collapse2" class="panel-collapse collapse">
+					<div class="panel-body filterPanel">
+						    <label class="OrderLabel">Priority</label>
+						    <label for="low" class="OrderLabel">Low</label>
+						    <input type="checkbox" name="low" class="filter" data-value="low" />
+						    <label for="moderate" class="OrderLabel">Moderate</label>
+						    <input type="checkbox" name="moderate" class="filter" data-value="moderate" />
+						    <label for="urgent" class="OrderLabel">Urgent</label>
+						    <input type="checkbox" name="urgent" class="filter" data-value="urgent" /><br>
+
+
+						    <!--label class="OrderLabel">Status</label>
+						    <label for="open" class="OrderLabel">open</label>
+						    <input type="checkbox" name="open"  class="filter1" data-value="open" />
+						    <label for="closed" class="OrderLabel">closed</label>
+						    <input type="checkbox" name="closed" class="filter1" data-value="closed"  /-->  
+
+						    <label class="OrderLabel">Status</label>
+						    <label for="open" class="OrderLabel">open</label>
+						    <input type="radio" name="status1"  class="filter1" data-value="open" />
+						    <label for="closed" class="OrderLabel">closed</label>
+						    <input type="radio" name="status1" class="filter1" data-value="closed"  /> 
+					</div>
+				      </div>
+				    </div>
+  			    </div>
+		
+			    <!--label class="OrderLabel">Sort by:</label>
+			    <button class="sort priorityBtn" data-sort="priority">
+				Priority <i class="fa fa-fw"></i>
+			    </button>
+			    <button class="sort dateBtn" data-sort="date">
+			       Date <i class="fa fa-fw"></i>
+			    </button--><br>
+		 
+			    <!--label class="OrderLabel">Filter: Priority</label>
+			    <label for="low" class="OrderLabel">Low</label>
+			    <input type="radio" name="prior1" class="filter" data-value="low" />
+			    <label for="moderate" class="OrderLabel">Moderate</label>
+			    <input type="radio" name="prior1" class="filter" data-value="moderate" />
+			    <label for="immediate" class="OrderLabel">Immediate</label>
+			    <input type="radio" name="prior1" class="filter" data-value="immediate" /><br>
+
+
+			    <label class="OrderLabel">Filter: Status</label>
+			    <label for="open" class="OrderLabel">open</label>
+			    <input type="radio" name="status1" class="filter1" data-value="open" />
+			    <label for="closed" class="OrderLabel">closed</label>
+			    <input type="radio" name="status1" class="filter1" data-value="closed"  /-->
+		</div>
+		<i class="fa fa-spinner fa-spin" ng-hide="EngineDetails"></i>
+        	<ul id="nav-tabs-wrapper" class="nav nav-tabs nav-pills navBARpill nav-stacked well navBarInside navBARWell SizeDivInherit list" ng-show="EngineDetails">
+            
+				 
+			     <li class="navTickets " ng-repeat="engine in EngineDetails" ng-class="{'active': $index==0}">
+				<a id="navBARButton" href="#vtabButton" data-toggle="tab" ng-click="engineDefect(engine)">
+				    <div class="package">
+					<span class="label label-danger status"  ng-class="{'label_color': engine.status === 'closed'}">{{engine.status}}</span><br>
+				        <span class="name">{{engine.EngineName}}<br> {{engine.Enginename}}</span><br>
+					Equipment Id : <span class="id" id="id">{{engine.EquipmentId}}</span><br>
+					Client : <span class="client">{{engine.Client}}</span><br>
+				        Priority : <span class="priority">{{engine.Priority}}</span><br>
+				        Date/Time : <span class="date">{{engine.DateTime}}</span>
+			
+				    </div>
+				</a>
+		    	    </li>
+
+			     
+		       
+       
+	 </ul> 
+		
+       <ul class="pagination"></ul>  
+		</div>  
+	</div>
+	
+	</div>
+	
+
+	<div class="col-md-9 OrderDetailsDiv">
+		<div class="col-md-12 engineDetails">
+			<div class="row row1">
+				<div class="col-md-8">
+					<label class="labelBold">{{engineId.EngineName}}{{engineId.Enginename}}</label>
+					<label class="labelRegular">Equipment Id:{{engineId.EquipmentId}}</label>
+					<label class="labelRegular">Priority:{{engineId.Priority}}</label>
+					<label class="labelRegular">Scheduled:{{engineId.DateTime}}</label>
+				</div>
+
+				<div class="col-md-4">
+				
+				</div>
+			</div>
+			
+		</div>
+		<div class="col-md-12">
+			<div class="row row2">
+				<div class="col-md-6">
+				    <div class="imgContainer">
+					<!--img class="enginePartImg" src="../images/engine.jpg" -->
+					<!-- Carousel start -->
+				        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+					    <!-- Indicators -->
+					    <ol class="carousel-indicators">
+					      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+					      <li data-target="#myCarousel" data-slide-to="1"></li>
+					      <li data-target="#myCarousel" data-slide-to="2"></li>
+					      <li data-target="#myCarousel" data-slide-to="3"></li>
+					    </ol>
+
+					    <!-- Wrapper for slides -->
+					    <!--<div class="carousel-inner" role="listbox">
+					      <div class="item" ng-class="{'active': $index==0}" ng-repeat="value in images">
+						<img src="{{value}}" alt="Chania" width="660" height="345" class="carImg">
+						
+					      </div>
+					    </div>-->
+					    <div class="carousel-inner" role="listbox" width="660">
+						<i class="fa fa-spinner fa-spin imageSpinner" ng-hide="images"></i>
+					      <div class="item active" ng-show="images">
+								<img src="{{blobURL}}{{images.img_front}}" alt="Loading Image" width="660" height="345" class="carImg">
+						
+					      </div>
+					      <div class="item" ng-show="images">
+								<img src="{{blobURL}}{{images.img_back}}" alt="Loading Image" width="660" height="345" class="carImg">
+						
+					      </div>
+					      <div class="item" ng-show="images">
+								<img src="{{blobURL}}{{images.img_top}}" alt="Loading Image" width="660" height="345" class="carImg">
+						
+					      </div>
+					      <div class="item" ng-show="images">
+								<img src="{{blobURL}}{{images.img_bottom}}" alt="Loading Image" width="660" height="345" class="carImg">
+						
+					      </div>
+					    </div>
+					    <!-- Left and right controls -->
+					    <!--a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+					      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+					      <span class="sr-only">Previous</span>
+					    </a>
+					    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+					      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+					      <span class="sr-only">Next</span>
+					    </a-->
+				</div>
+				<!-- Carousel end -->
+				    </div>
+				</div>
+				<div class="col-md-6">
+				    <div class="orderContainer">
+					<label class="containerTextBold">Lorem ipsum dolor sit amet, maecenas in at id lectus.</label>
+					<p class="containerText">
+						{{engineId.desc}}
+					</p>
+					<!--p>
+						<ul class="containerText">
+						<li>Lorem ipsum dolor sit amet, malesuada habitasse. </li>
+						<li>Inceptos libero auctor. </li>
+						<li>Amet ligula, suspendisse velit sit. </li>
+						<li>Sem fringilla, iaculis neque et, amet fringilla non. </li>
+						<li>Commodi eu, ipsum sagittis. </li>
+						<li>Est viverra, eget nibh. </li>
+						<li>Morbi justo, ad penatibus curabitur, sem placerat. </li>
+						<li>Nec mauris ac, platea sed nunc. </li>
+						<li>Sem fringilla, iaculis neque et, amet fringilla non. </li>
+						</ul>
+					</p-->
+				    </div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-12 row3">
+			<div class="buttonContainer">
+				<button class="button1" ng-click="functionNav()">View Asset<span class="glyphicon glyphicon-cog gly1" ></span></button>
+				<button class="button2">Events<span class="glyphicon glyphicon-wrench gly2"></span></button>
+				<button class="button3" ng-click="openServiceHistory()">Service History<span class="glyphicon glyphicon-time gly3"></span></button>
+				<button class="button4" data-toggle="modal" data-target="#notesModal">Notes History <span class="glyphicon glyphicon-list-alt gly4"></span></button>
+			</div>
+		</div>
+		<div class="col-md-12 row4">
+			<div class="attachmentContainer col-md-12">
+				<label class="attLabel">Attachments</label> <i class="fa fa-spinner fa-spin" ng-hide="attachments"></i>
+					<!--img src="https://sam-blob-service.run.aws-usw02-pr.ice.predix.io/v1/blob/781162.jpg"-->
+					<!--embed width="600" height="450" src="pdfFile.pdf" type="application/pdf"></embed>
+					<a href="pdfFile.pdf">OPen PDF</a--> 
+					<div id="gallery" class="col-md-12">
+						<!--a href="#" data-toggle="tooltip" data-placement="top" title="View PDF!">
+							<span class="glyphicon glyphicon-eye-open glyOpenPDF" id="thumbPdfDiv"></span>
+						</a-->
+						<div  ng-show="attachments">
+							<!--iframe id="thumbPdf" src="views/pdfFile.pdf" class="thumbnail" ></iframe-->
+							<!--embed id="thumbPdf" src="views/pdfFile.pdf" class="thumbnail"></embed-->
+						</div>
+						<!--span id="thumbPdfDiv">
+							<iframe id="thumbPdf" src="views/pdfFile.pdf" class="thumbnail" ></iframe>
+						</span-->
+					</div>
+			</div>
+		</div>
+		<div class="col-md-12 row5">
+			<div class="iconContainer">
+				<span class="glyphicon glyphicon-refresh glyRefresh"></span>
+				<span class="glyphicon glyphicon-plus-sign glyAdd"></span>
+				<span class="glyphicon glyphicon-trash glyDelete"></span>
+				<span class="glyphicon glyphicon-file glyFile"></span>
+			</div>
+		</div>
+	</div>
+	
+<!-- The Modal -->
+<div id="myModal" class="modal2">
+  <span class="close2">&times;</span>
+  <img class="modal2-content" id="img01">
+  <div id="caption2"></div>
+</div>
+
+<div id="myModal1" class="modal1">
+  <span class="close1">&times;</span>
+  <embed class="modal1-content" id="thumbPdf1"></embed>
+  <div id="caption1"></div>
+</div>
+
+
+ <div class="modal fade" id="notesModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header notesHeader">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title notesTitle">Notes</h4>
+        </div>
+        <div class="modal-body">
+<!--panel accordian-->
+ 
+	<div class="row">
+		<div class="accordiondivAcc">
+		      <div class="panel-group" id="accordion">
+				
+				  <div class="abc">
+					
+					<div class="well well-sm">
+						<div style="text-align:center;"><label class="labelBold">{{engineId.EngineName}}{{engineId.Enginename}}</label></div>
+						<div style="text-align:center;">
+							<label class="labelRegular">Equipment Id:{{engineId.EquipmentId}}</label>
+							<label class="labelRegular">Priority:{{engineId.Priority}}</label>
+							<label class="labelRegular">Scheduled:{{engineId.DateTime}}</label>
+						</div>
+					</div>
+					<button class="btn addNotesBtn" data-toggle="modal" data-target="#AddNoteModal">Add Notes
+						<span class="glyphicon glyphicon-plus addNoteIcon"></span>
+					</button>
+				  </div>
+				
+				<!--panel1-->
+				<div class="panel panel-default panel-defaultAcc" ng-repeat="notes in engineId.note">
+					<div class="panel-heading panel-headingAcc notesPanelHeading" data-toggle="collapse" data-target="#tickets{{notes.notename}}">
+						<h4 class="panel-title"><a class="accordiondivlink accordiondivlinkAcc" data-toggle="collapse" data-target="#tickets" href="#tickets" class="collapsed">{{notes.notename}}</a></h4>
+						<!--span class="glyphicon glyphicon-remove removeNote"></span-->
+					</div>
+					<div id="tickets{{notes.notename}}" class="panel-collapse collapse fade">
+						<div class="panel-body ticketsPanel">
+							<div class="NotesContent">
+						{{notes.descrpt}}
+							</div>
+							<div class="closebtndiv">
+								<button type="button" class="btn closebtn" data-toggle="modal" ng-click="setNoteToDelete($index)" data-target="#ConfirmDelete"><span class="glyphicon glyphicon-remove removeNote"></span> Delete Note</button> 
+										    
+							</div>
+						</div>
+					</div>
+				
+				
+		      </div>
+		</div>
+	</div>
+</div>
+
+<!--panel accordian ends-->	
+		      
+       
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+ </div>
+</div> 
+
+
+<!-- Add Note Modal -->
+<div id="AddNoteModal" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-sm">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+	      <div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal">&times;</button>
+		<h4 class="modal-title">Add Note</h4>
+	      </div>
+	      <div class="modal-body">
+			<div class="form-group">
+				  <label for="usr">Name:</label>
+				  <input type="text" class="form-control noteName" ng-model="noteName">
+			</div>
+			<div class="form-group">
+				  <label for="comment">Description:</label>
+				  <textarea class="form-control" rows="5" id="comment" ng-model="noteDescription"></textarea>
+			</div>
+	      </div>
+	      <div class="modal-footer">
+		<button type="button" ng-click="addNote()" class="btn btn-default" data-dismiss="modal">Save</button>
+		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	      </div>
+    </div>
+
+  </div>
+</div>
+ 
+<!-- Delete Note Confirm Modal -->
+<div id="ConfirmDelete" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-sm">
+
+	 <!-- Modal content-->
+    <div class="modal-content">
+	      <div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+	      </div>
+	      <div class="modal-body">
+	      	Are you sure?
+	      </div>
+	      <div class="modal-footer">
+		<button type="button" class="btn btn-default" ng-click="deleteNote(noteToDelete)" data-dismiss="modal">Yes</button>
+		<button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+	      </div>
+    </div>
+
+
+  </div>
+</div> 
+
+
+
+<script>
+//$(document).ready(function(){
+    //$('[data-toggle="tooltip"]').tooltip();   
+//});
+
+
+/*
+var fileArray=[];
+fileArray[0]=['cart.jpg'];
+fileArray[1]=['engine.jpg'];
+fileArray[2]=['engine5.jpg'];
+fileArray[3]=['engine6.jpeg'];
+var galleryId = "gallery";
+var thumb="";
+var gallery = document.getElementById(galleryId);
+for(var i = 0; i<fileArray.length; i++){
+	thumb = document.createElement("div");
+	var thumbL = document.createElement("label");
+	thumb.classList.add('thumbnail'); // Add the class thumbnail to the created div
+	thumbL.classList.add('thumbnailLabel');
+	var img = document.createElement("img");
+
+	thumb.appendChild(img);
+	thumb.appendChild(thumbL);
+	thumb.appendChild(img);
+	thumb.appendChild(thumbL);
+	gallery.appendChild(thumb);
+	img.src =fileArray[i] ;
+	thumbL.innerHTML = fileArray[i];
+
+	// Get the modal
+	var modal = document.getElementById('myModal');
+	var modalImg = document.getElementById("img01");
+	var captionText = document.getElementById("caption");
+	img.onclick = function(){
+	    modal.style.display = "block";
+	    modalImg.src = this.src;
+	    captionText.innerHTML = this.alt;
+	}
+	var span = document.getElementsByClassName("close")[0];
+
+	// When the user clicks on <span> (x), close the modal
+	span.onclick = function() { 
+	    modal.style.display = "none";
+	}
+
+
+
+	var thumbPdfDivId = "thumbPdfDiv";
+var thumbPdfContentId = "thumbPdf";
+var thumbPdfDiv = document.getElementById(thumbPdfDivId);
+var thumbPdfContent = document.getElementById(thumbPdfContentId);
+var modal1 = document.getElementById('myModal1');
+var modalPDF = document.getElementById("thumbPdf1");
+var captionText = document.getElementById("caption1");
+thumbPdfDiv.onclick = function(){
+	    modal1.style.display = "block";
+	    modalPDF.src = thumbPdfContent.src;
+	}
+}
+var span1 = document.getElementsByClassName("close1")[0];
+
+	// When the user clicks on <span> (x), close the modal
+	span1.onclick = function() { 
+	    modal1.style.display = "none";
+	}
+
+
+*/
+   
+
+	
+</script>
+
+

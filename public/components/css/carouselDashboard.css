@@ -1,0 +1,24 @@
+.carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 70%;
+      margin: auto;
+     /* height: 16rem; */
+	 height: 100%;
+  }
+
+.carouselM{
+      width: 70%;
+      margin: auto;
+  }
+
+.carousel-indicators {
+position: absolute !important;
+bottom: 10px !important;
+left: 50% !important;
+ z-index: 0 !important; 
+/* width: 60%; */
+padding-left: 0 !important;
+margin-left: -30% !important;
+text-align: center !important;
+list-style: none !important;
+}

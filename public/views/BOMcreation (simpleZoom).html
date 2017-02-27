@@ -1,0 +1,364 @@
+<link rel="stylesheet" type="text/css" href="../components/css/BOMcreation.css">
+<link rel="stylesheet" type="text/css" href="../components/css/carousel.css">
+<link rel="stylesheet" type="text/css" href="../components/css/index.css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script> 
+<!--script type="text/javascript" src="../components/Zoom-In-Out/ZoomPlugin/libs/jquery/jquery-ui.js"></script>
+<script type="text/javascript" src="../components/Zoom-In-Out/ZoomPlugin/src/imgViewer.js"></script>
+<script type="text/javascript" src="libs/jquery.mousewheel.min.js"></script>
+<script src="../components/Zoom-In-Out/ZoomPlugin/libs/jquery.fs.zoetrope.min.js"></script>
+<script src="../components/Zoom-In-Out/ZoomPlugin/libs/hammer.min.js"></script>
+<script src="../components/Zoom-In-Out/ZoomPlugin/libs/jquery.hammer.js"></script-->
+<style>
+#thediv1 {height:50rem; width:50rem; display:block; overflow:hidden; outline: 2px solid #777777; padding:20px;}
+
+
+
+#thediv {
+    margin:0 auto;
+	height:400px;
+	width:400px;
+	overflow:hidden;
+	}
+
+/* Banner */
+#banner {
+	background-color: #ededed;
+	background-size: cover;
+	background-position: center center;
+	height: 200px;
+	padding-top: 200px;
+	position: relative;
+}
+#banner .hot-spot {
+	background-color: #ffdd00;
+	-webkit-border-radius: 1000px;
+	-moz-border-radius: 1000px;
+	border-radius: 1000px;
+	color: #fff;
+	cursor: pointer;
+	display: none;
+	font-size: 20px;
+	height: 45px;
+	left: 50%;
+	position: absolute;
+	text-align: center;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	width: 45px;
+}
+#banner .hot-spot i {
+	line-height: 45px;
+}
+#banner .hot-spot .tooltip {
+	background-color: #fff;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+    color: #333;
+	display: none;
+	font-size: 14px;
+	left: 0px;
+	opacity: 1;
+	padding: 15px 20px 20px;
+	position: absolute;
+	text-align: left;
+	top: 55px;
+	width: 200px;
+	z-index: 999;
+}
+#banner .hot-spot .tooltip h4 {
+	margin-bottom: 10px;
+}
+#banner .hot-spot .tooltip p {
+	font-size: 14px;
+	line-height: 24px;
+	margin-bottom: 10px;
+}
+</style>
+
+<div class="col-md-12 MainDiv">
+	<div class="col-md-4 BOM-container">
+		<div class="BOM-details-container">
+			<label class="label1">Bill of Material Details</label>
+			<div class="col-md-12 BOMrow1">
+			</div>
+
+			<div class="col-md-12 BOMrow2">
+				<table class="table table-bordered BOMtable">
+				    <thead class="BOMThead">
+				      <tr>
+					<th>Sr</th>
+					<th>Description</th>
+					<th>Part No</th>
+					<th>Qty</th>
+					<th>Weight</th>
+					<th>Unit Cost</th>
+					<th>Total Cost</th>
+					<th>All</th>
+				      </tr>
+				    </thead>
+				    <tbody class="BOMTbody">
+				      <tr ng-repeat="x in BOMDetail">
+					<td>{{x.SrNo}}</td>
+					<td>{{x.Description}}</td>
+					<td>{{x.PartNo}}</td>
+					<td>{{x.Qty}}</td>
+					<td>{{x.Weight}}</td>
+					<td>{{x.UnitCost}}</td>
+					<td>{{x.TotalCost}}</td>
+					<td>{{x.All}}</td>
+				      </tr>
+				     
+				    </tbody>
+  				</table>
+			</div>
+
+		</div>
+
+		<div class="BOM-buttons-container">
+			<div class="col-md-12 buttonRow1">
+				<button class="buttonAddToCart">Add to Cart<span class="glyphicon glyphicon-shopping-cart glyCart"></span></button>
+				<button class="buttonRepair">Send to Repair<span class="glyphicon glyphicon glyphicon-wrench glyRepair"></span></button>
+			</div>
+
+			<div class="col-md-12 buttonRow2">
+				<button class="buttonSchedule">Schedule Field Service</button>
+				<button class="buttonCheckS">Check Substitute</button>
+			</div>
+			
+		</div>
+	</div>
+
+	<div class="col-md-8 Asset-details-container">
+		<div class="col-md-12 Row1">
+			<label class="assetLabel">CFM CFM56 Turbofan Jet Engine 103456<label>
+		</div>
+
+		<div class="col-md-12 Row2">
+			<!-- Carousel start -->
+			<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
+				    <!-- Indicators -->
+				    <ol class="carousel-indicators">
+				      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+				      <li data-target="#myCarousel" data-slide-to="1"></li>
+				      <li data-target="#myCarousel" data-slide-to="2"></li>
+				      <li data-target="#myCarousel" data-slide-to="3"></li>
+				    </ol>
+
+				    <!-- Wrapper for slides -->
+				    <div class="carousel-inner" role="listbox">
+				      <div class="item active">
+					<!--img src="../images/engine.jpg" alt="Chania" width="460" height="345"-->
+						<!--Image Hotspot  -->
+			   <div id="banner" class="carouselM" style="background-image:url('../images/engine.jpg'); height:454px; width:564px;">
+		<div class="hot-spot" x="-12" y="-4" ng-click="getBOMdetails(0)">
+			<i class="fa fa-plus"></i>
+			<div class="tooltip">
+				<h4>CFM CFM56 Turbofan Jet Engine 103456</h4>
+				<p>Equipment Id: Li-02302</p>
+				
+			</div>
+		</div>
+		<div class="hot-spot" x="5" y="-1" ng-click="getBOMdetails(1)">
+			<i class="fa fa-plus"></i>
+			<div class="tooltip">
+				<h4>CFM CFM66 Turbofan Jet Engine 108821</h4>
+				<p>Equipment Id: Li-02304</p>
+			</div>
+		</div>
+		
+	</div>
+<!--Image Hotspot  -->
+
+
+		
+				      </div>
+
+				      <div class="item">
+					<img src="../images/engine.jpg"  width="460" height="345">
+				      </div>
+				    
+				      <div class="item">
+					<img src="../images/engine.jpg"  width="460" height="345">
+				      </div>
+
+				      <div class="item">
+					<img src="../images/engine.jpg" width="460" height="345">
+				      </div>
+				    </div>
+
+				    <!-- Left and right controls -->
+				    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+				      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+				      <span class="sr-only">Previous</span>
+				    </a>
+				    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+				      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+				      <span class="sr-only">Next</span>
+				    </a>
+			</div>
+			<!-- Carousel end -->
+		</div>
+
+		<div class="col-md-12 Row3">
+				<button class="buttonFront" href="#myCarousel" data-slide-to="0">Front</button>
+				<button class="buttonBack " href="#myCarousel" data-slide-to="1">Back</button>
+				<button class="buttonRear" href="#myCarousel" data-slide-to="2">Rear</button>
+				<button class="buttonTop" href="#myCarousel" data-slide-to="3">Top</button>
+				<!--button class="buttonZoom" data-toggle="modal" data-target="#zoomModal">Zoom</button-->
+				<button class="buttonZoom1" data-toggle="modal" data-target="#zoomModal1" onclick="zoomImg()">Zoom</button>
+				<!--span class="glyphicon glyphicon-zoom-in glyZoomIn" onclick="zoom(1.1)"></span>
+				<span class="glyphicon glyphicon-zoom-out glyZoomOut" onclick="zoom(0.9)"></span-->
+				<span class="glyphicon glyphicon-refresh glyRefresh"></span>
+		</div>
+	</div>
+</div>
+<!--input type="button" value ="-" onclick="zoom(0.9)"/>
+<input type="button" value ="+" onclick="zoom(1.1)"/-->
+
+<div class="modal fade" id="zoomModal" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-md">
+      <div class="modal-content">
+        <div class="modal-header" id="modal_header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+	    <div id="thediv">
+         	<img src="../images/engine.jpg" id="pic" >
+	    </div>
+        </div>
+        <div class="modal-footer">
+         	<span class="glyphicon glyphicon-zoom-in glyZoomIn" onclick="zoom(1.1)"></span>
+		<span class="glyphicon glyphicon-zoom-out glyZoomOut" onclick="zoom(0.9)"></span>	
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="modal fade" id="zoomModal1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header" id="modal_header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+	    <div id="thediv1">
+         	<img src="../images/engine.jpg" id="pic1" width="600">
+	    </div>
+        </div>
+        <div class="modal-footer">
+         	<button class="zoomout">Zoom Out</button >
+		<button class="zoomin">Zoom In</button >
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<script>
+/*
+$("#image1").imgViewer({
+onClick: function( e, self ) {
+var pos = self.cursorToImg( e.pageX, e.pageY);
+$("#position").html(e.pageX + " " + e.pageY + " " + pos.relx + " " + pos.rely);
+}
+}); 
+*/
+
+function zoomImg() {
+//var imagesize = $('#pic1').width();
+var imgId =document.getElementById("pic1");
+var imagesize=imgId.width;
+//alert("img size .."+imagesize);
+var imagesize=imgId.width;
+    //alert("img size "+imagesize);
+    $('.zoomout').on('click', function(){ //alert("zoomout.."+imagesize);
+        imagesize = imagesize - 5;
+        $('#pic1').width(imagesize);
+    });
+    
+    $('.zoomin').on('click', function(){ //alert("zoomin.."+imagesize);
+        imagesize = imagesize + 5;
+        $('#pic1').width(imagesize);
+    });
+
+}
+
+
+
+//Image Hotspot
+$(document).ready(function() {
+	positionHotSpots();
+});
+
+$(window).on('resize', function() {
+	positionHotSpots();
+});
+
+/* Hotspots */
+var imageWidth = 1920 - 200;
+var imageHeight = 1000;
+var imageAspectRatio = imageWidth / imageHeight;
+
+function positionHotSpots() {
+	var bannerWidth = $('#banner').width();
+	var bannerHeight = $('#banner').height();
+	$('.hot-spot').each(function() {
+		var xPos = $(this).attr('x');
+		var yPos = $(this).attr('y');
+		if (imageWidth > bannerWidth) {
+			xPos = xPos * (((100 / bannerWidth) * imageWidth) / 100);
+			yPos = imageWidth / 100 * yPos + 'px';
+		} else {
+			yPos = yPos + '%';
+		}
+		$(this).css({
+			'margin-left': xPos + '%',
+			'margin-top': yPos,
+			'display': 'block',
+		});
+		$(this).children('.tooltip').css({
+			'margin-left': - ($(this).children('.tooltip').width() / 2)
+		});
+	});
+}
+	
+$(document).on('click', '.hot-spot', function() {
+	if ($(this).children('.tooltip').is(':visible')) {
+		$(this).children('i').attr('class','fa fa-plus');
+		$(this).children('.tooltip').css('display', 'none');
+	} else {
+		$('.hot-spot .tooltip').css('display', 'none');
+		$('.hot-spot i').attr('class','fa fa-plus');
+		$(this).children('i').attr('class','fa fa-minus');
+		$(this).children('.tooltip').css('display', 'block');
+		if ($(window).width() - ($(this).children('.tooltip').offset().left + $(this).children('.tooltip').outerWidth()) < 0) {
+			$(this).children('.tooltip').css({
+				'right': '0',
+				'left': 'auto',
+			});
+		}
+	}
+});
+
+//image hotspot
+/*
+window.onload = function(){zoom(1)}
+var img11;
+var origWidth;
+var origHeight;
+function zoom(zm) {
+ 
+ img11=document.getElementById("pic");
+origWidth=img11.width;
+origHeight=img11.height;
+ wid=img11.width;
+ ht=img11.height;
+img11.style.width=(wid*zm)+"px";
+img11.style.height=(ht*zm)+"px";
+    img.style.marginLeft = -(img11.width/2) + "px";
+    img.style.marginTop = -(img11.height/2) + "px";
+}
+*/
+
+</script>

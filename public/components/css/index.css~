@@ -1,0 +1,129 @@
+main:not([style-scope]):not(.style-scope) {
+    background-color: #033D6D !important;
+}
+
+.px-app-nav-0.navbar--collapsed {
+    width: 6.5rem !important; 
+}
+
+[role="banner"] h1:not([style-scope]):not(.style-scope), [role="banner"] h2:not([style-scope]):not(.style-scope) {
+    margin-left: 2rem !important;
+}
+
+[role="banner"] h1 svg:not([style-scope]):not(.style-scope), [role="banner"] h2 svg:not([style-scope]):not(.style-scope) {
+    margin-bottom: -0.5em !important;
+}
+
+
+.viewport:not([style-scope]):not(.style-scope) {
+    margin-right: 0rem !important;
+    margin-left: 0rem !important;
+}
+
+.px-app-nav-0 .navbar__item.px-app-nav > li.px-app-nav a.px-app-nav {
+    padding-right: 2em;
+    padding-left: 1.067em !important;
+    padding-top: 0em !important;
+    padding-bottom: 0em;
+}
+
+px-app-nav.navbar.navbar.x-scope.px-app-nav-0.navbar--text-hidden.navbar--collapsed.x-scope.px-app-nav-0 {
+padding-top: 0em !important;
+background-color: #033D6D;
+}
+
+.px-app-nav-0.navbar--text-hidden .navbar__item.px-app-nav > li.px-app-nav > a.px-app-nav span.px-app-nav, .px-app-nav-0.navbar--text-hidden .navbar__item.px-app-nav > li.px-app-nav ul.px-app-nav {
+    position: inherit !important;
+    overflow: hidden !important;
+        overflow-x: hidden;
+        overflow-y: hidden;
+    width: 0px !important;
+    height: 1px !important;
+    margin: -1px !important;
+    border: 0px none !important;
+    padding: 0px !important;
+    clip: rect(0px, 0px, 0px, 0px) !important;
+}
+
+.px-app-nav-0 {
+padding:0em !important!;
+}
+
+iron-icon#nav-item-0 {
+margin-left:0.1rem !important;
+margin-top: 2rem;
+}
+iron-icon#nav-item-1 {
+margin-left: 0.1rem !important;
+margin-top: 2rem;
+}
+span.u-ml--.style-scope.px-app-nav {
+font-size: 0.9em;
+}
+
+.u-ml--.style-scope.px-app-nav {
+    margin: 0rem !important;
+}
+
+[role=banner]:not([style-scope]):not(.style-scope) {
+background-color: #C4EAF7 !important;}
+
+body.app.ng-scope {
+margin-bottom: 0rem;
+}
+.px-login-0 .login.px-login {
+background-color: #033D6D;
+}
+[role=banner] h1 svg path:not([style-scope]):not(.style-scope), [role=banner] h2 svg path:not([style-scope]):not(.style-scope) {
+fill: #033D6D !important;
+}
+.px-app-nav-0 a.selected.px-app-nav, .px-app-nav-0 a.selected.px-app-nav:hover {
+background-color: #033D6D;
+}
+
+
+
+
+
+.title{margin-left: 2rem;
+color: #033D6D;}
+
+#cartImg{
+margin-right: 12rem;
+height: 2rem;
+}
+
+.rightDiv{
+float :right;
+margin-top: 1rem;
+}
+
+.bell_gly {
+    margin-right: 10rem;
+    font-size: 2em;
+	color: #033D6D;
+}
+.cart_gly{
+   font-size: 2em;
+   color: #033D6D;
+	margin-right: 1rem;
+}
+
+main.u-pt--.u-pr--.u-pl-- {
+padding: 0em !important;
+}
+
+.style-scope.px-app-nav {
+    text-align: center !important;
+    vertical-align: middle !important;
+}
+
+/* Overriding Bootstrap CSS */
+
+px-app-nav.navbar.navbar.x-scope.px-app-nav-0.navbar--text-hidden.navbar--collapsed.x-scope.px-app-nav-0 {
+border-radius: 0px !important;
+position: relative !important;
+min-height: initial !important;
+margin-bottom: 0px !important;
+border: 0px !important;
+} 

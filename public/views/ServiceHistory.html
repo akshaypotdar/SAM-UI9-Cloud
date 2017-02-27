@@ -1,0 +1,189 @@
+<link rel="stylesheet" type="text/css" href="../components/css/ServiceHistory.css">
+<div class="container-fluid SHmain">
+    <div class="row">
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<div class="SHhead">Asset Service History</div>
+			    </div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<div class="row">
+						<div id="orderTable" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ServiceDiv">
+							<table st-table="rowCollection" class="table table-bordered ServiceHistoryTable">
+								<thead><tr>
+										<td colspan="8" class="text-center tablecolor">Work Orders
+										</td>
+									</tr>
+									<tr>
+										<th>Work Order</br> No. #</th>
+										<th>Date</th>
+										<th>WO Description</th>
+										<th>Status</th>
+										<th>All</br>Orders</br>Placed</th>
+										<th>All</br>Orders</br>Shipped</th>
+										<th>All</br>Orders</br>Recieved</th>
+										<th>View</br>Consignments</th>
+										
+									</tr>
+								</thead>
+								<tbody>
+									<tr ng-hide="wob">
+										<th colspan='8' class="loading">loading...</th>
+				      					</tr>
+									<tr ng-repeat="row in rowCollection" class="ServiceHistoryTableRow" ng-show="wob">
+										<td>{{row.uri}}</td>
+										<td>{{row.DateTime | date}}</td>
+										<td>{{row.EngineName}}</td>
+										<td><span class="label label-danger status"  ng-class="{'label_color': row.status === 'closed'}">{{row.status}}</span></td>
+										<td><i ng-show="row.placed"  class="fa fa-check tableCursor" aria-hidden="true"></i><i ng-hide="row.placed"  class="fa fa-times" aria-hidden="true"></i></td>
+										<td><i ng-show="row.shiped"  class="fa fa-check tableCursor" aria-hidden="true"></i><i ng-hide="row.shiped"  class="fa fa-times" aria-hidden="true"></i></td>
+										<td><i ng-show="row.delivered"  class="fa fa-check tableCursor" aria-hidden="true"></i><i ng-hide="row.delivered"  class="fa fa-times" aria-hidden="true"></i></td>
+										<!-- Trigger for Track Modal -->
+										<!--td><a data-toggle="modal" data-target="#TrackModal" class="tableCursor">Track Part</a></td-->
+										<!--td ><a ng-click="loadServiceDetails(row.uri)" class="tableCursor">View Order</a></td-->
+						<!--view consignments--><td>
+										<div class="dropdown">
+										    <button class="btn btn-primary dropdown-toggle consbtn" type="button" data-toggle="dropdown" ng-click="getConignments(row.uri)"  >View
+										    <span class="caret"></span></button>
+										    <ul class="dropdown-menu">
+											<i class="fa fa-spinner fa-spin imageSpinnerBom" ng-hide="spinner"></i>
+										      <li id="view" ng-click="toggle()" ng-repeat="consignment in consignments"><a  ng-click="loadServiceDetails(consignment.uri)" class="tableCursor conslink" ng-show="spinner">{{ consignment.uri.split("/")[2] }}</a></li>
+										    </ul>
+									  	</div>
+									</td>
+									</tr>
+								</tbody>
+								<tfoot>
+									<tr>
+										<td colspan="8" class="text-center tablecolor">
+											<div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="7"></div>
+										</td>
+									</tr>
+								</tfoot>
+							</table>
+						</div>
+						<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5 ServiceHistoryWell" ng-show="myVar">
+								<table st-table="rowCollection2" class="table table-bordered ServiceHistoryTable">
+								<thead><tr>
+										<td colspan="5" class="text-center tablecolor">Ordered Parts
+										</td>
+										<td colspan="3" class="text-center tablecolor">
+										<button class="btn btn-primary trackbtn" type="button" data-toggle="modal" data-target="#TrackModal" class="tableCursor">Track Order</a>
+										</td>
+									</tr>
+									<tr>
+									<th>Sr</th>
+									<th>Description</th>
+									<th>Part No</th>
+									<th>Qty</th>
+									<th>Weight</th>
+									<th>Unit Cost</th>
+									<th>Total Cost</th>	
+									</tr>
+								</thead>
+								<tbody>
+									<tr ng-hide="orderPartsVar">
+										<th colspan='7' class="loading">loading...</th>
+				      					</tr>
+									<tr ng-repeat="row in rowCollection2" class="ServiceHistoryTableRow2" ng-show="orderPartsVar">
+										<td>{{$index+1}}</td>
+										<td>{{row.partname}}</td>
+										<td>{{row.partno}}</td>
+										<td>{{row.qty}}</td>
+										<td>{{row.totalweight}}</td>
+										<td>{{row.unitcost}}</td>
+										<td>{{row.qty * row.unitcost}}</td>
+										
+									</tr>
+								</tbody>
+								<tfoot>
+									<tr>
+										<td colspan="7" class="text-center tablecolor">
+											<div st-pagination="abc" st-items-by-page="itemsByBom" st-displayed-pages="7"></div>
+										</td>
+									</tr>
+								</tfoot>
+							</table>
+						</div>
+					</div>
+					<div class="modal fade" id="TrackModal" role="dialog">
+						<div class="modal-dialog modal-lg">
+							 <div class="modal-content">
+								<div class="modal-header TrackModalHead">
+								  <button type="button" class="close" data-dismiss="modal">&times;</button>
+								  <h4 class="modal-title">Order Status:</</h4>
+								</div>
+								<div class="modal-body">
+
+
+									<div class="row shop-tracking-status">
+										
+										<div class="col-md-12">
+											<div class="well">
+										
+										
+
+												<ul class="list-group">
+													<li class="list-group-item">
+														<span class="prefix">Date created:</span>
+														<span class="label label-success">12.12.2013</span>
+														<span class="prefix">Last update:</span>
+														<span class="label label-success">12.15.2013</span>
+													</li>
+													<li class="list-group-item">Tracking Link:<a href="//tracking/link/goes/here">//tracking/link/goes/here</a></li>
+												</ul>
+
+												<div class="order-status">
+
+													<div class="order-status-timeline">
+														<!-- class names: c0 c1 c2 c3 and c4 -->
+														<div class="order-status-timeline-completion c3"></div>
+													</div>
+
+													<div class="image-order-status image-order-status-new active img-circle">
+														<span class="status">Accepted</span>
+														<div class="icon"></div>
+													</div>
+													<div class="image-order-status image-order-status-active active img-circle">
+														<span class="status">In progress</span>
+														<div class="icon"></div>
+													</div>
+													<div class="image-order-status image-order-status-intransit active img-circle">
+														<span class="status">Shipped</span>
+														<div class="icon"></div>
+													</div>
+													<div class="image-order-status image-order-status-delivered active img-circle">
+														<span class="status">Delivered</span>
+														<div class="icon"></div>
+													</div>
+													<div class="image-order-status image-order-status-completed active img-circle">
+														<span class="status">Completed</span>
+														<div class="icon"></div>
+													</div>
+
+												</div>
+											</div>
+										</div>
+
+									</div>
+
+
+
+
+
+								</div>
+								<div class="modal-footer">
+								  <button type="button" class="btn btn-default TrackModalClose" data-dismiss="modal">Close</button>
+								</div>
+							 </div>
+						</div>
+					</div>
+		</div>
+				
+			</div>
+		 </div>
+	</div>
+</div>
+

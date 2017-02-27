@@ -1,0 +1,13 @@
+---
+applications:
+  - name: predix-seed
+    buildpack: predix_openresty_buildpack
+    path: dist
+    memory: 64M
+    stack: cflinuxfs2
+    services:
+            - sam_uaa # change this to your uaa service instance name
+            - reporting_view_service # change this to your view service instance name
+    env:
+      UAA_SERVER_URL: https://samapp.predix-uaa.run.aws-usw02-pr.ice.predix.io # change to your UAA instance url
+      #REDIS: redis 
